@@ -88,4 +88,13 @@
           backdrop-filter: blur(10px);
   color: #fff;
 }
+
+.app_content h4 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.app_content h4 a {
+  color: #fff;
+}
 /*# sourceMappingURL=style.css.map */

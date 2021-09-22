@@ -12,7 +12,7 @@
         <img :src="img" :alt="city">
         <h2>{{ temp }}°C</h2>
         <p>{{ description }}</p>
-        <a href="https://sobirov.netlify.app">Created By Aziz Sobirov</a>
+        <h4><a href="https://sobirov.netlify.app">Created By Aziz Sobirov</a></h4>
       </div>
     </div>
 </template>
