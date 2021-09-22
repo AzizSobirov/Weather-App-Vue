@@ -29,6 +29,8 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -42,11 +44,13 @@
 
 .app_search .input #as_btn {
   height: 100%;
+  width: auto;
   border-radius: 0 4px 4px 0;
 }
 
 .app_search .input #as_input {
   height: 100%;
+  width: auto;
   border-radius: 4px 0 0 4px;
 }
 
