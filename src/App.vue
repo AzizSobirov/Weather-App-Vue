@@ -5,7 +5,7 @@
           <input type="search" placeholder="Search City or Town" id="as_input" v-model="input">
           <button id="as_btn" @click="fetchWeather()"><a href="#">Search</a></button>
         </div>
-        <p>{{ error }}</p>
+        <p>{{error}}</p>
       </div>
       <div class="app_content">
         <h3>{{ city }}</h3>
