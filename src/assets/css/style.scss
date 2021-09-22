@@ -1,0 +1,54 @@
+@import url('https://aziz-sobirov.github.io/AS-library/css/as.css');
+
+@mixin flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app{
+    min-height: 100vh;
+    background: url(../bgImage.jpg) center/cover;
+    @include flexbox;
+    &_search{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background: url(../bgImage.jpg) center/cover;
+        @include flexbox;
+        flex-direction: column;
+        z-index: 2;
+        .input{
+            height: 35px;
+            #as_btn{
+                height: 100%;
+                border-radius: 0 4px 4px 0;
+            }
+            #as_input{
+                height: 100%;
+                border-radius: 4px 0 0 4px;
+            }
+            #as_btn:hover::before{
+                background: #38b8d0;
+            }
+        }
+        p{
+            margin-top: 10px;
+            color: #fff;
+        }
+    }
+    &_search-hide{
+        display: none;
+    }
+    &_content{
+        padding: 20px;
+        width: 200px;
+        @include flexbox;
+        flex-direction: column;
+        background: #f1f1f130;
+        backdrop-filter: blur(10px);
+        color: #fff;
+    }
+}
