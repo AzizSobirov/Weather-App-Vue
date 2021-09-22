@@ -44,13 +44,13 @@
 
 .app_search .input #as_btn {
   height: 100%;
-  width: auto;
+  max-width: 40vw;
   border-radius: 0 4px 4px 0;
 }
 
 .app_search .input #as_input {
   height: 100%;
-  width: auto;
+  max-width: 60vw;
   border-radius: 4px 0 0 4px;
 }
 
