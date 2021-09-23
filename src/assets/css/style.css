@@ -69,7 +69,7 @@
 
 .app_content {
   padding: 20px;
-  width: 200px;
+  min-width: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,12 +89,15 @@
   color: #fff;
 }
 
-.app_content h4 {
-  margin-top: 20px;
-  text-align: center;
+.app_content li {
+  margin-top: 10px;
 }
 
-.app_content h4 a {
+.app_content li:not(:first-child) {
+  margin-top: 5px;
+}
+
+.app_content a {
   color: #fff;
 }
 /*# sourceMappingURL=style.css.map */

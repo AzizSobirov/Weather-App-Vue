@@ -47,16 +47,18 @@
     }
     &_content{
         padding: 20px;
-        width: 200px;
+        min-width: 200px;
         @include flexbox;
         flex-direction: column;
         background: #f1f1f130;
         backdrop-filter: blur(10px);
         color: #fff;
-        h4{
-            margin-top: 20px;
-            text-align: center;
-            a{color: #fff;}
+        li{
+            margin-top: 10px;
+            &:not(:first-child){
+                margin-top: 5px;
+            }
         }
+        a{color: #fff;}
     }
 }
