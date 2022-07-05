@@ -7,7 +7,7 @@
         <h3 class="fas fa-location-dot"></h3>
       </form>
       <div class="icon" v-if="weather">
-        <img :src="icon" alt="" />
+        <img :src="getIcon(weather.current.condition.code)" alt="" />
         <h1>{{ weather.current.temp_c }}°C</h1>
       </div>
       <div class="text" v-if="weather">
@@ -28,15 +28,15 @@
       <nav>
         <h2>Weather</h2>
         <ul>
-          <li>°C</li>
+          <li class="active">°C</li>
           <li>°F</li>
-          <li>Moon</li>
+          <li><h2 class="fas fa-moon"></h2></li>
         </ul>
       </nav>
       <ul class="days" v-if="weather">
         <li v-for="i in weather.forecast.forecastday" :key="i.id">
           <h3>{{ getDay(i.date) }}</h3>
-          <img src="../assets/animated/cloudy-day-1.svg" alt="" />
+          <img :src="getIcon(i.day.condition.code)" alt="" />
           <h3>{{ i.day.avgtemp_c }}°C</h3>
         </li>
       </ul>
@@ -59,7 +59,7 @@
           <li>
             <p>Sunrise & Sunset</p>
             <span>
-              <img src="../assets/animated/day.svg" alt="" />
+              <img src="../assets/animated/1000.svg" alt="" />
               <p>{{ weather.forecast.forecastday[0].astro.sunrise }}</p>
             </span>
             <span>
@@ -85,13 +85,12 @@
   </main>
 </template>
 <script>
-import cloudy1 from "../assets/animated/cloudy-day-1.svg";
-import sunny from "../assets/animated/day.svg";
+// import cloudy1 from "../assets/animated/";
+// import sunny from "../assets/animated/day.svg";
 
 export default {
   data() {
     return {
-      icon: "",
       city: "London",
       weather: null,
     };
@@ -110,13 +109,6 @@ export default {
         .then((data) => {
           this.weather = data;
           console.log(data);
-
-          let text = data.current.condition.text;
-          if (text == "Sunny") {
-            this.icon = sunny;
-          } else if (text == "Partly cloudy") {
-            this.icon = cloudy1;
-          }
         });
     },
     getTime() {
@@ -162,6 +154,9 @@ export default {
         "Saturday",
       ];
       return days[d.getDay()];
+    },
+    getIcon(val) {
+      return require("../assets/animated/" + val + ".svg");
     },
   },
 };

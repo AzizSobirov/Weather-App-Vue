@@ -69,9 +69,20 @@
         @include center(center, space-between);
         ul {
           li {
+            padding: 5px 15px;
             display: inline;
+            border-radius: 30px;
             &:not(:last-child) {
               margin-right: 10px;
+            }
+            &:last-child {
+              h2 {
+                transform: translateY(2.5px);
+              }
+            }
+            &.active {
+              color: #fff;
+              background: var(--bs-gray-700);
             }
           }
         }

@@ -328,11 +328,23 @@ textarea:focus::placeholder {
 }
 
 .app main article nav ul li {
+  padding: 5px 15px;
   display: inline;
+  border-radius: 30px;
 }
 
 .app main article nav ul li:not(:last-child) {
   margin-right: 10px;
+}
+
+.app main article nav ul li:last-child h2 {
+  -webkit-transform: translateY(2.5px);
+          transform: translateY(2.5px);
+}
+
+.app main article nav ul li.active {
+  color: #fff;
+  background: var(--bs-gray-700);
 }
 
 .app main article .days {
