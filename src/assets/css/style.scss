@@ -103,15 +103,13 @@
           display: grid;
           gap: 15px;
           grid-template-columns: repeat(3, minmax(200px, 1fr));
-          grid-template-rows: 1fr 1fr;
+          grid-template-rows: auto;
           li {
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 20px;
             background: #fff;
             gap: 10px;
             @include center(center, flex-start, column);
-            box-shadow: 0 4px 5px var(--bs-gray-400);
-
             p {
               align-self: flex-start;
             }
@@ -120,9 +118,22 @@
             }
             h2 {
               align-self: flex-start;
-
               font-size: 2.5em;
               font-weight: 400;
+            }
+            span {
+              align-self: flex-start;
+              @include center;
+              &:last-child {
+                position: relative;
+                top: -20px;
+              }
+              img {
+                width: 70px;
+              }
+              p {
+                align-self: center;
+              }
             }
           }
         }

@@ -26,21 +26,21 @@
     </aside>
     <article>
       <nav>
-        <h2>WHETHERSA</h2>
+        <h2>Weather</h2>
         <ul>
           <li>°C</li>
           <li>°F</li>
           <li>Moon</li>
         </ul>
       </nav>
-      <ul class="days">
-        <li v-for="i in 5" :key="i">
-          <h3>Tue</h3>
+      <ul class="days" v-if="weather">
+        <li v-for="i in weather.forecast.forecastday" :key="i.id">
+          <h3>{{ getDay(i.date) }}</h3>
           <img src="../assets/animated/cloudy-day-1.svg" alt="" />
-          <h3>12°C</h3>
+          <h3>{{ i.day.avgtemp_c }}°C</h3>
         </li>
       </ul>
-      <div class="options">
+      <div class="options" v-if="weather">
         <h3>Today's Highlights</h3>
         <ul>
           <li>
@@ -49,30 +49,35 @@
           </li>
           <li>
             <p>Wind Staus</p>
-            <h2>7.70km/h</h2>
+            <h2>{{ weather.current.wind_kph }}kph</h2>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/959/959711.png"
+              style="width: 50px;"
+              alt=""
+            />
           </li>
           <li>
             <p>Sunrise & Sunset</p>
             <span>
-              <img src="" alt="" />
-              <p>6:30am</p>
+              <img src="../assets/animated/day.svg" alt="" />
+              <p>{{ weather.forecast.forecastday[0].astro.sunrise }}</p>
             </span>
             <span>
-              <img src="" alt="" />
-              <p>6:30am</p>
+              <img src="../assets/animated/night.svg" alt="" />
+              <p>{{ weather.forecast.forecastday[0].astro.sunset }}</p>
             </span>
           </li>
           <li>
             <p>Humidity</p>
-            <h2>70%</h2>
+            <h2>{{ weather.current.humidity }}%</h2>
           </li>
           <li>
             <p>Visibility</p>
-            <h2>5.2 km</h2>
+            <h2>{{ weather.current.vis_km }}km</h2>
           </li>
           <li>
             <p>Pressure</p>
-            <h2>1013.25 hPa</h2>
+            <h2>{{ weather.current.pressure_mb }}hPa</h2>
           </li>
         </ul>
       </div>
@@ -144,6 +149,19 @@ export default {
       let month = months[date.getMonth()];
       //   let year = date.getFullYear();
       return day + ", " + month + " " + today;
+    },
+    getDay(val) {
+      let d = new Date(val);
+      let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      return days[d.getDay()];
     },
   },
 };
