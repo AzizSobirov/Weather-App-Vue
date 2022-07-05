@@ -1,64 +1,174 @@
-@import url('https://aziz-sobirov.github.io/AS-library/css/as.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+@import "other";
 
-@mixin flexbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.app {
+  min-height: 100vh;
+  main {
+    @include center;
+    background: var(--bs-gray-200);
+    aside {
+      padding: 20px;
+      height: 100vh;
+      width: 35vw;
+      @include center(flex-start, flex-start, column);
+      background: #fff;
+      border-radius: 0 20px 20px 0;
+      form {
+        padding: 10px;
+        width: 100%;
+        gap: 10px;
+        @include center(center, space-between);
+        border-radius: 30px;
+        background: var(--bs-gray-200);
+        input {
+          width: 100%;
+          font-size: 16px;
+          background: transparent;
+        }
+      }
+      .icon {
+        width: 100%;
+        @include center(flex-start, center, column);
+        img {
+          width: 300px;
+        }
+        h1 {
+          margin-left: 50px;
+          font-size: 5em;
+          font-weight: 300;
+        }
+      }
+      .text {
+        padding: 0 50px;
+        width: 100%;
+
+        hr {
+          margin: 10px 0;
+          width: 100%;
+          border: none;
+          height: 1.5px;
+          background: #e2eaf8;
+        }
+        span {
+          @include center(center, flex-start);
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    article {
+      padding: 20px 40px;
+      height: 100vh;
+      width: 65vw;
+      gap: 50px;
+      overflow: scroll;
+      @include center(flex-start, flex-start, column);
+      nav {
+        width: 100%;
+        @include center(center, space-between);
+        ul {
+          li {
+            display: inline;
+            &:not(:last-child) {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      .days {
+        width: 100%;
+        @include center(center, flex-start);
+        gap: 15px;
+        li {
+          padding: 10px 15px;
+          border-radius: 10px;
+          background: #fff;
+          @include center(center, center, column);
+          box-shadow: 0 4px 5px var(--bs-gray-400);
+          transition: 0.5s;
+          &:hover {
+            transform: translateY(10px);
+          }
+          img {
+            width: 100px;
+          }
+        }
+      }
+      .options {
+        width: 100%;
+        ul {
+          margin-top: 20px;
+          width: 100%;
+          display: grid;
+          gap: 15px;
+          grid-template-columns: repeat(3, minmax(200px, 1fr));
+          grid-template-rows: 1fr 1fr;
+          li {
+            padding: 15px;
+            border-radius: 10px;
+            background: #fff;
+            gap: 10px;
+            @include center(center, flex-start, column);
+            box-shadow: 0 4px 5px var(--bs-gray-400);
+
+            p {
+              align-self: flex-start;
+            }
+            img {
+              width: 100px;
+            }
+            h2 {
+              align-self: flex-start;
+
+              font-size: 2.5em;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-.app{
-    min-height: 100vh;
-    background: url(../bgImage.jpg) center/cover;
-    @include flexbox;
-    &_search{
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 100%;
-        background: url(../bgImage.jpg) center/cover;
-        @include flexbox;
-        flex-wrap: nowrap;
-        flex-direction: column;
-        z-index: 2;
-        .input{
-            height: 35px;
-            #as_btn{
-                height: 100%;
-                max-width: 40vw;
-                border-radius: 0 4px 4px 0;
-            }
-            #as_input{
-                height: 100%;
-                max-width: 60vw;
-                border-radius: 4px 0 0 4px;
-            }
-            #as_btn:hover::before{
-                background: #38b8d0;
-            }
+@media screen and (max-width: 758px) {
+  .app {
+    main {
+      flex-direction: column;
+      aside {
+        height: auto;
+        width: 100vw;
+        border-radius: 0 0;
+        .icon {
+          @include center(center, space-around);
+          h1 {
+            font-size: 2.5em;
+          }
+          img {
+            width: 150px;
+          }
         }
-        p{
-            margin-top: 10px;
-            color: #fff;
+        .text {
+          padding: 0 20px;
         }
-    }
-    &_search-hide{
-        display: none;
-    }
-    &_content{
-        padding: 20px;
-        min-width: 200px;
-        @include flexbox;
-        flex-direction: column;
-        background: #f1f1f130;
-        backdrop-filter: blur(10px);
-        color: #fff;
-        li{
-            margin-top: 10px;
-            &:not(:first-child){
-                margin-top: 5px;
-            }
+      }
+      article {
+        padding: 10px 5vw;
+        height: auto;
+        width: 100vw;
+        gap: 30px;
+        overflow: inherit;
+        .days {
+          padding: 10px 0;
+          overflow-x: scroll;
         }
-        a{color: #fff;}
+        .options {
+          ul {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+          }
+        }
+      }
     }
+  }
 }
